@@ -43,14 +43,25 @@ Let the agent finish one thing, then look up the next unfinished task **in the s
 
 ## 安装 / Install
 
+**本仓库的版本没有发布到 npm。** npm 上的 `dsh-todo-board` 停在 **0.13.5**（原始版本，不含自动捕获、中文语义判定、卡片跳回）。要这一版，从本仓库装：
+
 ```sh
-dsh plugin --profile web add dsh-todo-board          # 从 npm 安装 / from npm
-dsh plugin --profile web add <git-url-or-path>       # 或从仓库/本地目录 / from a repo or local path
+dsh plugin --profile web add https://github.com/huadao1145/dsh-dynamic-todo-board
 ```
+
+This repository's version is **not on npm**. The npm package `dsh-todo-board` is still at **0.13.5** — the original, without auto-capture, Chinese semantic judgement, or the jump-back button. Install this version from the repository above.
 
 安装后**重启 Profile**（重新执行 `dsh web`）才会装载 —— 本插件是 host 组合里的一行，不是运行时热加载。
 
 Restart the profile afterwards: the plugin is a row in the host composition, not a runtime hot-load.
+
+其它装法 / Alternatives：
+
+```sh
+dsh plugin --profile web add github:huadao1145/dsh-dynamic-todo-board   # git 简写
+dsh plugin --profile web add <绝对路径>/dsh-todo-board                   # 本地目录（开发用）
+dsh plugin --profile web add dsh-todo-board                            # npm：装到 0.13.5 原始版
+```
 
 卸载 / Uninstall：`dsh plugin --profile web remove dsh-todo-board`
 

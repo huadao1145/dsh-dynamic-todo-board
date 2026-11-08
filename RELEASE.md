@@ -20,4 +20,4 @@ Chinese-aware: 嗯 = answered, 先放着 = not; reports ≠ questions.
 
 Also: auto/manual toggle, all-sessions view, optional model check.
 
-Install: clone, add as local plugin.
+Install: `dsh plugin --profile web add https://github.com/huadao1145/dsh-dynamic-todo-board`
