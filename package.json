@@ -8,11 +8,11 @@
   "author": "sueqet",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huadao1145/dsh-todo-board.git"
+    "url": "git+https://github.com/huadao1145/dsh-dynamic-todo-board.git"
   },
-  "homepage": "https://github.com/huadao1145/dsh-todo-board#readme",
+  "homepage": "https://github.com/huadao1145/dsh-dynamic-todo-board#readme",
   "bugs": {
-    "url": "https://github.com/huadao1145/dsh-todo-board/issues"
+    "url": "https://github.com/huadao1145/dsh-dynamic-todo-board/issues"
   },
   "engines": {
     "node": ">=22.19.0",
