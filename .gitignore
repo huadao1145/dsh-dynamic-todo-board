@@ -1,0 +1,53 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 构建产物
+dist/
+build/
+out/
+
+# 日志
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 操作系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 本地配置与凭据（绝不提交）
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+.credentials.yaml
+cordis.patch.local.yml
+
+# 临时文件与调试产物
+*.tmp
+*.bak
+*~
+.cache/
+coverage/
+
+# 本机调试脚本（不属于插件本体）
+.clean-board.mjs
+_probe*.mjs
+_t[0-9]*.mjs
+_asar*.mjs
+_set-github-owner.mjs
+_validate-ark.mjs
+_ark_*.mjs
+_scan_patch.mjs
+_sc.mjs

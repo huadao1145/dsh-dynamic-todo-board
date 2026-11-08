@@ -1,0 +1,81 @@
+{
+  "name": "dsh-todo-board",
+  "version": "0.14.11",
+  "description": "跨会话 TODO 板：右上角浮窗、按工作目录分组、可拖动排序；每条待办可选「提醒 / 自动续跑 / 自动新开会话」三档执行模式，截图 Ctrl+V 直接粘贴成附图（派发时作为真正的图片发给模型），可设定本地时间到点才执行，双勾选（AI 完成 / 用户验收）—— 勾上右勾的行会移入下方独立的「已完成」列表，每条待办还能带备注并在面板内直接编辑。三套可切换的界面风格（票据 / 素白 / 紧凑）。长任务可以让模型先拆成步骤再按顺序执行（`/todo <目标>` 或直接粘模板；一次调用写入整份计划、一次审批）。AI 完成一项后自动查找同目录下一条未完成待办并继续执行；AI 改板子一律先经 DSH 原生审批框（沙箱已放开完全访问、审批档为 never 时除外），板子路由另需浏览器会话凭据。",
+  "private": false,
+  "type": "module",
+  "license": "MIT",
+  "author": "sueqet",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huadao1145/dsh-todo-board.git"
+  },
+  "homepage": "https://github.com/huadao1145/dsh-todo-board#readme",
+  "bugs": {
+    "url": "https://github.com/huadao1145/dsh-todo-board/issues"
+  },
+  "engines": {
+    "node": ">=22.19.0",
+    "dsh": ">=0.1.7-rc.2"
+  },  "files": [
+    "lib",
+    "client",
+    "tools",
+    "assets",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "todo",
+    "todo-list",
+    "task-board",
+    "待办",
+    "定时执行",
+    "图片附件",
+    "粘贴图片",
+    "剪贴板",
+    "自动接续",
+    "折叠",
+    "皮肤",
+    "界面风格"
+  ],
+  "scripts": {
+    "check": "node --check lib/index.js && node --check client/client.js",
+    "test": "node tools/smoke.mjs && node tools/client-smoke.mjs && node tools/retry-loop.mjs && node tools/check-http.mjs && node tools/check-live.mjs && node tools/check-permission-derive.mjs && node tools/check-fence-parity.mjs && node tools/check-session-format.mjs && node tools/check-template-parity.mjs",
+    "guard": "node tools/check-clamp-guard.mjs && node tools/check-row-guard.mjs && node tools/check-host-guard.mjs && node tools/check-autoreview-guard.mjs && node tools/check-nudge-settings-guard.mjs && node tools/check-approval-guard.mjs",
+    "test:browser": "node tools/check-browser.mjs"
+  },
+  "dsh": {
+    "category": "extension",
+    "displayName": "TODO 板",
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-theme"
+      ],
+      "platform": "web"
+    }
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh": ">=0.1.7-rc.2"
+  }
+}
