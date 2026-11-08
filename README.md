@@ -65,7 +65,7 @@ Restart the profile afterwards: the plugin is a row in the host composition, not
 
 会话格式在这两端**都是 v4**，所以同一条适配覆盖两者。插件注入的每条消息都带一个**生产者自有的 source**（`{ kind: 'plugin:dsh-todo-board', form: 'notice' }`）：这是 v4 的硬性要求，旧 v3 的写法会被持久化层拒绝，而**拒绝会带走整个回合**——不只是那条提示。不带这个适配的发布版只有 **0.4.1 / 0.5.0 / 0.6.1**。
 
-**0.2.1-rc.2 的实际核对结论**：会话格式仍是 v4（`SESSION_FORMAT_VERSION = 4`），插件依赖的 14 个 host 服务、4 个 host 事件、`shell.overlay` slot、以及 `useSessions` 的 store 形状**全部未变**。逐项证据见 [`docs/report-0.2.1-compat.md`](docs/report-0.2.1-compat.md)。
+**0.2.1-rc.2 的实际核对结论**：会话格式仍是 v4（`SESSION_FORMAT_VERSION = 4`），插件依赖的 12 个 host 服务、6 个 host 事件、`shell.overlay` slot、以及 `useSessions` 的 store 形状**全部未变**。同在 0.2.2-rc.1 上逐条复测，结论一致。逐项证据见 [`docs/report-0.2.1-compat.md`](docs/report-0.2.1-compat.md)。
 
 #### 版本门是 peer，不是 engines / The gate is a peer, not an engine
 
